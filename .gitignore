@@ -1,3 +1,6 @@
+# Build output
+dist/
+
 # Logs
 logs
 *.log
@@ -9,21 +12,21 @@ pids
 *.seed
 *.pid.lock
 
-# Dependency directories (e.g., Node, Python)
+# Dependencies
 node_modules/
 jspm_packages/
 venv/
 .venv/
 env/
 
-# Environments and secrets
+# Env files
 .env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
 
-# IDEs and editors
+# IDEs
 .idea/
 .vscode/
 *.suo
@@ -32,6 +35,6 @@ env/
 *.sln
 *.swp
 
-# Operating System files
+# OS
 .DS_Store
 Thumbs.db
