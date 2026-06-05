@@ -95,7 +95,7 @@ export function Navbar({ onSchedule }: NavbarProps) {
           {/* Logo */}
           <Link
   to="/"
-  className="flex items-center gap-2.5 group flex-shrink-0 cursor-pointer">s
+  className="flex items-center gap-2.5 group flex-shrink-0 cursor-pointer">
             <motion.div whileHover={{ scale: 1.08 }} transition={{ type: "spring", stiffness: 380 }}>
               <NprtLogo size={46} />
             </motion.div>
