@@ -83,7 +83,7 @@ export function Hero({ onSchedule }: HeroProps) {
 
   return (
     <>
-      <section className="relative overflow-hidden" style={{ height: "100vh", width: "100%" }}>
+      <section className="relative overflow-hidden" style={{ height: "100dvh", width: "100vw" }}>
 
         {/* Slide Images */}
         <AnimatePresence mode="popLayout" initial={false}>

@@ -35,7 +35,8 @@ export function PropertyCard3D({ onSchedule }: PropertyCard3DProps) {
   };
 
   return (
-    <section className="relative overflow-hidden" style={{ height: "100vh", width: "100%" }}>
+   <section className="relative py-24 px-6 md:px-16" style={{ background: "var(--np-bg-mid)" }}>
+  <div className="max-w-7xl mx-auto flex flex-col items-center"></div>
 
       <motion.div
         initial={{ opacity: 0, y: 60 }}

@@ -44,15 +44,17 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      <div
-        className="min-h-screen"
-        style={{
-          background: "var(--np-bg)",
-          fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
-          color: "var(--np-text)",
-        }}
-      >
-        <Navbar onSchedule={openModal} />
+  <div
+  style={{
+    minHeight: "100%",
+    width: "100%",
+    position: "relative",
+    background: "var(--np-bg)",
+    fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
+    color: "var(--np-text)",
+    overflowX: "hidden",
+  }}
+><Navbar onSchedule={openModal} />
 
         <Routes>
           <Route path="/" element={<HomePage onSchedule={openModal} />} />
