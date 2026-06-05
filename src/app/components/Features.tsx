@@ -156,7 +156,7 @@ export function Features({ onSchedule }: FeaturesProps) {
         >
           <div className="flex items-center gap-3 mb-4">
             <div className="h-px w-12 bg-[#c9a96e]" />
-            <span className="text-[#c9a96e] text-xs tracking-widest uppercase">Home Features</span>
+           <span className="text-[#c9a96e] text-xs font-bold tracking-widest uppercase" style={{ textShadow: "0 2px 6px rgba(0,0,0,0.9)" }}>Home Features</span>
           </div>
           <h2
             className="text-white"

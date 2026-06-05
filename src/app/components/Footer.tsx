@@ -93,9 +93,16 @@ export function Footer({ onSchedule }: FooterProps) {
         {/* Bottom bar */}
         <div className="border-t border-white/8 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-white/25 text-xs">
-            © 2026 North Pond Realty Trust · Developed By Vigomerge Inc. 
-  ·https://www.vigomerge.com/
-          </p>
+  © 2026 North Pond Realty Trust · Developed By{" "}
+  <a
+    href="https://www.vigomerge.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-[#c9a96e] hover:underline"
+  >
+    https://www.vigomerge.com
+  </a>
+</p>
           <p className="text-white/25 text-xs">
             All photography and content © North Pond Realty Trust
           </p>

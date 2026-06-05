@@ -130,9 +130,9 @@ export function Hero({ onSchedule }: HeroProps) {
         <div className="absolute inset-0 flex flex-col justify-end pb-32 px-8 md:px-16 z-20 max-w-5xl">
           <div className="flex items-center gap-2 mb-3">
             <MapPin size={13} className="text-[#c9a96e]" />
-            <span className="text-[#c9a96e] text-xs tracking-widest uppercase">
-              Long-Term Rental · Norway, Maine · Oxford Hills
-            </span>
+           <span className="text-[#c9a96e] text-xs font-bold tracking-widest uppercase" style={{ textShadow: "0 2px 6px rgba(0,0,0,0.9)" }}>
+            Long-Term Rental · Norway, Maine · Oxford Hills
+          </span>
           </div>
 
           <AnimatePresence mode="wait">

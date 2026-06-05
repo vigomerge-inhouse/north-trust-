@@ -93,12 +93,16 @@ export function Navbar({ onSchedule }: NavbarProps) {
       >
         <div className="max-w-7xl mx-auto px-5 flex items-center justify-between" style={{ height: 68 }}>
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2.5 group flex-shrink-0">
+          <Link
+  to="/"
+  className="flex items-center gap-2.5 group flex-shrink-0 cursor-pointer">s
             <motion.div whileHover={{ scale: 1.08 }} transition={{ type: "spring", stiffness: 380 }}>
               <NprtLogo size={46} />
             </motion.div>
             <div className="leading-tight hidden sm:block">
-              <div className="text-white font-semibold tracking-wide text-sm" style={{ color: "var(--np-text)" }}>North Pond</div>
+              <div className="text-white font-semibold tracking-wide text-sm transition-colors duration-300 group-hover:text-[#c9a96e]">
+  North Pond
+</div>
               <div className="text-[10px] tracking-[0.18em] uppercase" style={{ color: "var(--np-gold)" }}>Realty Trust</div>
             </div>
           </Link>
@@ -113,7 +117,7 @@ export function Navbar({ onSchedule }: NavbarProps) {
                 onMouseLeave={hideGroup}
               >
                 <button
-                  className="flex items-center gap-1 px-4 py-2 rounded-full text-sm tracking-wide transition-all duration-250"
+                  className="flex items-center gap-1 px-4 py-2 rounded-full text-sm font-bold tracking-wide transition-all duration-250"
                   style={{
                     color: isGroupActive(group) ? "var(--np-gold)" : "rgba(244,239,229,0.7)",
                     background: isGroupActive(group) || activeGroup === group.label ? "rgba(201,160,85,0.12)" : "transparent",
@@ -170,7 +174,7 @@ export function Navbar({ onSchedule }: NavbarProps) {
                                 <Icon size={14} style={{ color: active ? "var(--np-gold)" : "rgba(244,239,229,0.55)" }} />
                               </div>
                               <div>
-                                <div className="text-sm font-medium" style={{ color: active ? "var(--np-gold)" : "var(--np-text)" }}>
+                                <div className="text-sm font-bold" style={{ color: active ? "var(--np-gold)" : "var(--np-text)" }}>
                                   {item.label}
                                 </div>
                                 <div className="text-xs mt-0.5" style={{ color: "var(--np-text-faint)" }}>{item.desc}</div>
