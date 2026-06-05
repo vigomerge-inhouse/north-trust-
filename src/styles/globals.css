@@ -1,0 +1,38 @@
+/* North Pond Realty Trust — Premium Design Tokens */
+:root {
+  --np-bg:         #08121d;
+  --np-bg-mid:     #0d1e30;
+  --np-bg-alt:     #060e18;
+  --np-surface:    rgba(255,255,255,0.04);
+  --np-surface-hv: rgba(255,255,255,0.075);
+  --np-gold:       #c9a055;
+  --np-gold-lt:    #e4c47a;
+  --np-gold-dk:    #9e7a35;
+  --np-gold-glow:  rgba(201,160,85,0.22);
+  --np-border:     rgba(201,160,85,0.18);
+  --np-border-hv:  rgba(201,160,85,0.38);
+  --np-text:       #f4efe5;
+  --np-text-muted: rgba(244,239,229,0.55);
+  --np-text-faint: rgba(244,239,229,0.32);
+}
+
+/* Smooth scrolling */
+html { scroll-behavior: smooth; }
+
+/* Remove default heading resets */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: inherit;
+  margin: 0;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--np-bg-alt); }
+::-webkit-scrollbar-thumb { background: var(--np-gold-dk); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--np-gold); }
+
+/* Selection */
+::selection { background: rgba(201,160,85,0.3); color: #f4efe5; }
+
+/* Input placeholder */
+input::placeholder, textarea::placeholder { color: rgba(244,239,229,0.28) !important; }
