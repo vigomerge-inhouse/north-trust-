@@ -1,4 +1,4 @@
-import logo from "../../imports/nprt-logo.png";
+import logo from "../../imports/nprt-logo2.png";
 
 interface NprtLogoProps {
   size?: number;
