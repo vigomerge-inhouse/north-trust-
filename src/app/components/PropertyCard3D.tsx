@@ -36,7 +36,7 @@ export function PropertyCard3D({ onSchedule }: PropertyCard3DProps) {
 
   return (
    <section className="relative py-24 px-6 md:px-16" style={{ background: "var(--np-bg-mid)" }}>
-  <div className="max-w-7xl mx-auto flex flex-col items-center"></div>
+  <div className="max-w-7xl mx-auto flex flex-col items-center">
 
       <motion.div
         initial={{ opacity: 0, y: 60 }}
@@ -134,6 +134,7 @@ export function PropertyCard3D({ onSchedule }: PropertyCard3DProps) {
             </button>
           </div>
         </motion.div>
+      </div>
       </div>
     </section>
   );

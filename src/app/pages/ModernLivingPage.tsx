@@ -1,12 +1,13 @@
 import { motion } from "motion/react";
 import { Link } from "react-router";
-import { ArrowRight, Sparkles, Zap, Layers, Wind } from "lucide-react";
+import { ArrowRight, Sparkles, Zap, Layers, Wind, X, ChevronLeft, ChevronRight } from "lucide-react";
+import { useState } from "react";
 import { SectionHeader } from "../components/SectionHeader";
 import { PageHero } from "../components/PageHero";
 import livingRoomImg from "../../imports/mordern-living/Living_room_access_to_the_kitchen.jpg";
 import kitchenImg from "../../imports/mordern-living/Brand_New_Kitchen.jpg";
 import denImg from "../../imports/mordern-living/Den_or_Office___Dining_Room.jpg";
-import neatImg from "../../imports/mordern-living/Neat_and_clean_home_with_peace-1.jpg";
+import neatImg from "../../imports/mordern-living/Neat_and_clean_home_with_peace-2.jpg";
 import wrapImg from "../../imports/mordern-living/Wrap-around_porch.jpg";
 
 const BG = livingRoomImg;
@@ -66,8 +67,10 @@ interface ModernLivingPageProps {
 }
 
 export function ModernLivingPage({ onSchedule }: ModernLivingPageProps) {
-  return (
-    <div style={{ background: "var(--np-bg)" }} className="min-h-screen">
+  const [lightbox, setLightbox] = useState<number | null>(null);
+ return (
+  <>
+  <div style={{ background: "var(--np-bg)" }} className="min-h-screen">
       <PageHero
         image={BG}
         eyebrow="Modern Living"
@@ -134,7 +137,7 @@ export function ModernLivingPage({ onSchedule }: ModernLivingPageProps) {
               className={`grid grid-cols-1 lg:grid-cols-2 gap-10 items-center ${i % 2 === 1 ? "lg:flex-row-reverse" : ""}`}
             >
               {/* Image */}
-              <div className="relative w-full h-80 rounded-2xl overflow-hidden">
+            <div className="relative w-full h-80 rounded-2xl overflow-hidden cursor-pointer" onClick={() => setLightbox(i)}>
                  
                 <img src={s.img} alt={s.title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
                 <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(8,18,29,0.55) 0%, transparent 60%)" }} />
@@ -229,6 +232,26 @@ export function ModernLivingPage({ onSchedule }: ModernLivingPageProps) {
       <div className="border-t py-5 text-center" style={{ borderColor: "var(--np-border)" }}>
         <p style={{ color: "var(--np-text-faint)", fontSize: "0.72rem" }}>Ranch Retreat — Norway, Maine · Long-Term Rental · Oxford Hills · Immediately Available</p>
       </div>
+   </div>
+
+  {lightbox !== null && (
+    <div className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center" onClick={() => setLightbox(null)}>
+      <button className="absolute top-5 right-5 w-10 h-10 rounded-full bg-white/10 border border-white/20 text-white flex items-center justify-center hover:bg-white/25 transition-all" onClick={() => setLightbox(null)}>
+        <X size={18} />
+      </button>
+      <button className="absolute left-4 w-10 h-10 rounded-full bg-white/10 border border-white/20 text-white flex items-center justify-center hover:bg-white/25 transition-all" onClick={(e) => { e.stopPropagation(); setLightbox((lightbox - 1 + LIFESTYLE_SECTIONS.length) % LIFESTYLE_SECTIONS.length); }}>
+        <ChevronLeft size={18} />
+      </button>
+      <img src={LIFESTYLE_SECTIONS[lightbox].img} alt={LIFESTYLE_SECTIONS[lightbox].title} className="max-h-[85vh] max-w-[90vw] rounded-2xl object-contain" onClick={(e) => e.stopPropagation()} />
+      <button className="absolute right-4 w-10 h-10 rounded-full bg-white/10 border border-white/20 text-white flex items-center justify-center hover:bg-white/25 transition-all" onClick={(e) => { e.stopPropagation(); setLightbox((lightbox + 1) % LIFESTYLE_SECTIONS.length); }}>
+        <ChevronRight size={18} />
+      </button>
+      <div className="absolute bottom-6 w-full text-center">
+        <div className="text-white/70 text-sm">{LIFESTYLE_SECTIONS[lightbox].title}</div>
+        <div className="text-[#c9a96e] text-xs tracking-widest uppercase mt-1">Ranch Retreat · Norway, Maine</div>
+      </div>
     </div>
-  );
+  )}
+  </>
+);
 }

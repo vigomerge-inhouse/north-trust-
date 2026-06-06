@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { Link } from "react-router";
-import { ArrowRight, Check, Sparkles, BedDouble, TreePine, Waves, Star, ChefHat, Droplets } from "lucide-react";
+import { ArrowRight, Check, Sparkles, BedDouble, TreePine, Waves, Star, ChefHat, Droplets, X, ChevronLeft, ChevronRight } from "lucide-react";
+import { useState } from "react";
 import { SectionHeader } from "./SectionHeader";
 import kitchenImg from "../../imports/HomeSections/Brand_New_Kitchen.jpg";
 import bathroomImg from "../../imports/HomeSections/Stunning_master_bathroom.jpg";
@@ -14,6 +15,8 @@ import forestImg2 from "../../imports/HomeSections/Private_Forest-1.jpg";
 
 /* ── MODERN LIVING ──────────────────────────────────────────── */
 export function ModernLivingSection({ onSchedule }: { onSchedule: () => void }) {
+  const [lightbox, setLightbox] = useState<number | null>(null);
+  const ML_IMGS = [kitchenImg, bathroomImg, denImg];
   const POINTS = [
     { icon: Sparkles, text: "Thoughtfully designed spaces — every room reimagined from scratch" },
     { icon: ChefHat, text: "Gourmet kitchen with quartz countertops and premium appliances" },
@@ -78,12 +81,12 @@ export function ModernLivingSection({ onSchedule }: { onSchedule: () => void }) 
             transition={{ duration: 0.7 }}
             className="grid grid-cols-2 gap-3 h-[480px]"
           >
-            <div className="relative overflow-hidden rounded-2xl row-span-2 group" style={{ boxShadow: "0 20px 50px rgba(8,18,29,0.5), 0 0 0 1px var(--np-border)" }}>
+            <div className="relative overflow-hidden rounded-2xl row-span-2 group cursor-pointer" onClick={() => setLightbox(0)} style={{ boxShadow: "0 20px 50px rgba(8,18,29,0.5), 0 0 0 1px var(--np-border)" }}>
               <img src={kitchenImg} alt="Modern Kitchen" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(8,18,29,0.5), transparent)" }} />
               <div className="absolute bottom-3 left-3 text-white text-xs font-medium">Brand New Kitchen</div>
             </div>
-            <div className="relative overflow-hidden rounded-2xl group" style={{ boxShadow: "0 15px 40px rgba(8,18,29,0.5)" }}>
+            <div className="relative overflow-hidden rounded-2xl group cursor-pointer" onClick={() => setLightbox(1)} style={{ boxShadow: "0 15px 40px rgba(8,18,29,0.5)" }}>
               <img src={bathroomImg} alt="Master Bathroom" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
             </div>
             <div className="relative overflow-hidden rounded-2xl group" style={{ boxShadow: "0 15px 40px rgba(8,18,29,0.5)" }}>

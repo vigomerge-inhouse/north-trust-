@@ -4,14 +4,22 @@ import { ChevronLeft, ChevronRight, ChevronDown, MapPin, Star } from "lucide-rea
 import { Link } from "react-router";
 
 // ── HERO IMAGE IMPORTS ───────────────────────────────────────
+import h5Img from "../../imports/hero/h5.jpg";
 import h1Img from "../../imports/hero/h1.jpeg";
 import h2Img from "../../imports/hero/h2.jpeg";
 import h3Img from "../../imports/hero/h3.jpeg";
 import h4Img from "../../imports/hero/h4.jpeg";
-import h5Img from "../../imports/hero/h5.jpg";
+//import h5Img from "../../imports/hero/h5.jpg";
 // ── END HERO IMAGE IMPORTS ───────────────────────────────────
 
 const SLIDES = [
+   {
+    url: h5Img,
+    label: "Primary Suite with Spa-Like Bath",
+    sub: "Walk-In Closet · Spa-Like Ensuite Bath",
+    tag: "Master Suite",
+    position: "object-bottom",
+  },
   {
     url: h1Img,
     label: "Exceptional Country Living",
@@ -40,13 +48,7 @@ const SLIDES = [
     tag: "Interior",
     position: "object-bottom",
   },
-  {
-    url: h5Img,
-    label: "Primary Suite with Spa-Like Bath",
-    sub: "Walk-In Closet · Spa-Like Ensuite Bath",
-    tag: "Master Suite",
-    position: "object-bottom",
-  },
+ 
 ];
 
 const STATS = [

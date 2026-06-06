@@ -1,7 +1,9 @@
 import { motion } from "motion/react";
 import { Link } from "react-router";
-import { ArrowRight, Check, Home, MapPin, Trees, Star, Waves } from "lucide-react";
+//mport { ArrowRight, Check, Home, MapPin, Trees, Star, Waves } from "lucide-react";
 import { SectionHeader } from "../components/SectionHeader";
+import { useState } from "react";
+import { ArrowRight, Check, Home, MapPin, Trees, Star, Waves, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { PageHero } from "../components/PageHero";
 import neatImg from "../../imports/PropertyHighlight/Neat_and_clean_home_with_peace-1.jpg";
 import neatImg2 from "../../imports/PropertyHighlight/Neat_and_clean_home_with_peace.jpg";
@@ -76,12 +78,15 @@ const GALLERY_FEATURED = [
 ];
 
 interface PropertyHighlightsPageProps {
+  
   onSchedule: () => void;
 }
 
 export function PropertyHighlightsPage({ onSchedule }: PropertyHighlightsPageProps) {
+  const [lightbox, setLightbox] = useState<number | null>(null);
   return (
-    <div style={{ background: "var(--np-bg)" }} className="min-h-screen">
+  <>
+  <div style={{ background: "var(--np-bg)" }} className="min-h-screen">
       <PageHero
         image={neatImg}
         eyebrow="Property Highlights"
@@ -188,6 +193,7 @@ export function PropertyHighlightsPage({ onSchedule }: PropertyHighlightsPagePro
                   key={i}
                   className={`relative overflow-hidden rounded-2xl group cursor-pointer ${photo.wide ? "col-span-2" : ""}`}
                   style={{ boxShadow: "0 10px 30px rgba(8,18,29,0.5)" }}
+                  onClick={() => setLightbox(i)}
                 >
                   <img src={photo.url} alt={photo.label} className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-600" />
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3" style={{ background: "linear-gradient(to top, rgba(8,18,29,0.8), transparent)" }}>
@@ -231,5 +237,25 @@ export function PropertyHighlightsPage({ onSchedule }: PropertyHighlightsPagePro
         <p style={{ color: "var(--np-text-faint)", fontSize: "0.72rem" }}>Ranch Retreat — Norway, Maine · Long-Term Rental · Oxford Hills · Immediately Available</p>
       </div>
     </div>
-  );
+
+  {lightbox !== null && (
+    <div className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center" onClick={() => setLightbox(null)}>
+      <button className="absolute top-5 right-5 w-10 h-10 rounded-full bg-white/10 border border-white/20 text-white flex items-center justify-center hover:bg-white/25 transition-all" onClick={() => setLightbox(null)}>
+        <X size={18} />
+      </button>
+      <button className="absolute left-4 w-10 h-10 rounded-full bg-white/10 border border-white/20 text-white flex items-center justify-center hover:bg-white/25 transition-all" onClick={(e) => { e.stopPropagation(); setLightbox((lightbox - 1 + GALLERY_FEATURED.length) % GALLERY_FEATURED.length); }}>
+        <ChevronLeft size={18} />
+      </button>
+      <img src={GALLERY_FEATURED[lightbox].url} alt={GALLERY_FEATURED[lightbox].label} className="max-h-[85vh] max-w-[90vw] rounded-2xl object-contain" onClick={(e) => e.stopPropagation()} />
+      <button className="absolute right-4 w-10 h-10 rounded-full bg-white/10 border border-white/20 text-white flex items-center justify-center hover:bg-white/25 transition-all" onClick={(e) => { e.stopPropagation(); setLightbox((lightbox + 1) % GALLERY_FEATURED.length); }}>
+        <ChevronRight size={18} />
+      </button>
+      <div className="absolute bottom-6 w-full text-center">
+        <div className="text-white/70 text-sm">{GALLERY_FEATURED[lightbox].label}</div>
+        <div className="text-[#c9a96e] text-xs tracking-widest uppercase mt-1">Ranch Retreat · Norway, Maine</div>
+      </div>
+    </div>
+  )}
+  </>
+);
 }

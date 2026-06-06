@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { useInView } from "motion/react";
-import { ArrowRight, Check } from "lucide-react";
 import { Link } from "react-router";
+import { ArrowRight, Check, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { useRef, useState } from "react";
 import neatHomeImg from "../../imports/hero/hg1.jpg";
 import guestBathImg from "../../imports/hero/hg2.jpg";
@@ -53,12 +53,13 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
   return (
-    <motion.div
+   <motion.div
       ref={ref}
       initial={{ opacity: 0, y: 40 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.7, delay, ease: "easeOut" }}
       className={className}
+      style={{ position: "relative", zIndex: 10 }}
     >
       {children}
     </motion.div>
@@ -70,7 +71,9 @@ interface OverviewProps {
 }
 
 export function Overview({ onSchedule }: OverviewProps) {
+   const [lightbox, setLightbox] = useState<number | null>(null);
   return (
+      <>
     <section id="overview" className="bg-[#0b1a2e] py-24 px-6 md:px-16">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
@@ -117,11 +120,12 @@ export function Overview({ onSchedule }: OverviewProps) {
 
           {/* Photo Gallery Grid */}
           <FadeIn delay={0.2}>
-            <div className="grid grid-cols-2 gap-3 h-[480px]">
+  <div className="grid grid-cols-2 gap-3 h-[480px]" style={{ position: "relative", zIndex: 10 }}>
               {GALLERY_IMAGES.map((img, i) => (
                 <div
                   key={i}
                   className={`relative overflow-hidden rounded-2xl group cursor-pointer ${img.size}`}
+                  onClick={() => setLightbox(i)}
                   style={{ boxShadow: "0 20px 60px rgba(0,0,0,0.5)" }}
                 >
                   <img
@@ -149,6 +153,26 @@ export function Overview({ onSchedule }: OverviewProps) {
           </button>
         </FadeIn>
       </div>
-    </section>
-  );
+   </section>
+
+    {lightbox !== null && (
+      <div className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center" onClick={() => setLightbox(null)}>
+        <button className="absolute top-5 right-5 w-10 h-10 rounded-full bg-white/10 border border-white/20 text-white flex items-center justify-center hover:bg-white/25 transition-all" onClick={() => setLightbox(null)}>
+          <X size={18} />
+        </button>
+        <button className="absolute left-4 w-10 h-10 rounded-full bg-white/10 border border-white/20 text-white flex items-center justify-center hover:bg-white/25 transition-all" onClick={(e) => { e.stopPropagation(); setLightbox((lightbox - 1 + GALLERY_IMAGES.length) % GALLERY_IMAGES.length); }}>
+          <ChevronLeft size={18} />
+        </button>
+        <img src={GALLERY_IMAGES[lightbox].url} alt={GALLERY_IMAGES[lightbox].label} className="max-h-[85vh] max-w-[90vw] rounded-2xl object-contain" onClick={(e) => e.stopPropagation()} />
+        <button className="absolute right-4 w-10 h-10 rounded-full bg-white/10 border border-white/20 text-white flex items-center justify-center hover:bg-white/25 transition-all" onClick={(e) => { e.stopPropagation(); setLightbox((lightbox + 1) % GALLERY_IMAGES.length); }}>
+          <ChevronRight size={18} />
+        </button>
+        <div className="absolute bottom-6 w-full text-center">
+  <div className="text-white/70 text-sm">{GALLERY_IMAGES[lightbox].label}</div>
+  <div className="text-[#c9a96e] text-xs tracking-widest uppercase mt-1">Ranch Retreat · Norway, Maine</div>
+</div>
+      </div>
+    )}
+  </>
+);
 }
