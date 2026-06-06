@@ -127,7 +127,7 @@ export function PropertyHighlightsSection({ onSchedule }: { onSchedule: () => vo
         <SectionHeader
           eyebrow="Property Highlights"
           title="A perfect blend"
-          titleAccent="of style & convenience"
+          titleAccent="of style and convenience"
           subtitle="Discover a perfect blend of style, convenience, and location. This exceptional property offers spacious layouts, premium finishes, abundant natural light, and a setting designed for modern living."
         />
 
