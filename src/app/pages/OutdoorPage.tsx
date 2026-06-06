@@ -109,14 +109,14 @@ const OUTDOOR_PERKS = [
 ];
 
 const GALLERY = [
-  { url: g1, label: "Property Exterior",  span: "col-span-2 row-span-2" },
-  { url: g2, label: "Grounds",            span: "" },
-  { url: g3, label: "Barn & Garage",      span: "" },
-  { url: g4, label: "Storage",            span: "" },
-  { url: g5, label: "Outbuilding",        span: "" },
-  { url: g6, label: "Interior Access",    span: "" },
-  { url: g7, label: "Outdoor Space",      span: "" },
-  { url: g8, label: "Natural Views",      span: "" },
+  { url: g1, label: "Property Exterior" },
+  { url: g2, label: "Grounds" },
+  { url: g3, label: "Barn & Garage" },
+  { url: g4, label: "Storage" },
+  { url: g5, label: "Outbuilding" },
+  { url: g6, label: "Interior Access" },
+  { url: g7, label: "Outdoor Space" },
+  { url: g8, label: "Natural Views" },
 ];
 
 
@@ -274,7 +274,7 @@ export function OutdoorPage({ onSchedule }: OutdoorPageProps) {
             </div>
           </motion.div>
 
-          <div className="grid grid-cols-3 gap-3 h-[600px]">
+         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {GALLERY.map((img, i) => (
               <motion.div
                 key={i}
@@ -282,8 +282,11 @@ export function OutdoorPage({ onSchedule }: OutdoorPageProps) {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.07 }}
-                className={`relative overflow-hidden rounded-2xl group cursor-pointer ${img.span}`}
-                style={{ boxShadow: "0 15px 40px rgba(0,0,0,0.4)" }}
+                className="relative overflow-hidden rounded-2xl group cursor-pointer"
+                style={{
+  height: "220px",
+  boxShadow: "0 15px 40px rgba(0,0,0,0.4)",
+}}
               >
                 <img src={img.url} alt={img.label} className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0b1a2e]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">

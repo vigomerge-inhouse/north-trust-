@@ -4,11 +4,13 @@ import { Waves, Mountain, Building2, Trees, Navigation, Clock, ArrowRight, Chevr
 
 // LOCAL IMAGES
 import privateForestImg from "../../imports/location/Private_Forest.jpg";
-import privateForest2Img from "../../imports/location/Private_Forest-1.jpg";
+import privateForest2Img from "../../imports/location/Private_Forest-1.jpeg";
 import outdoor1 from "../../imports/location/stonetree-61.jpg";
 import outdoor2 from "../../imports/location/stonetree-63.jpg";
 import neatHomeImg from "../../imports/location/fhero2.jpg";
-
+import stonetree from "../../imports/location/stonetree-12.jpg";
+import stonetree2 from "../../imports/location/stonetree-48.jpg";
+import privatespace from "../../imports/location/private-space.jpeg";
 const SLIDES = [
   {
     url: privateForestImg,
@@ -108,13 +110,13 @@ const AREA_HIGHLIGHTS = [
 ];
 
 const GALLERY_AREA = [
-  { url: privateForestImg,  label: "Private Woods",       span: "col-span-2 row-span-2" },
+  { url: privatespace,  label: "Private Woods",       span: "" },
   { url: privateForest2Img, label: "Forest Views",        span: "" },
   { url: outdoor1,          label: "Nature Trails",       span: "" },
   { url: outdoor2,          label: "Woodland Edge",       span: "" },
   { url: neatHomeImg,       label: "Country Access Road", span: "" },
-  { url: privateForestImg,  label: "Secluded Acres",      span: "" },
-  { url: privateForest2Img, label: "Nature Escape",       span: "" },
+  { url: stonetree,  label: "Secluded Acres",      span: "" },
+  { url: stonetree2, label: "Nature Escape",       span: "" },
 ];
 
 
@@ -281,7 +283,7 @@ export function LocationPage({ onSchedule }: LocationPageProps) {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.07 }}
-                className={`relative overflow-hidden rounded-2xl group cursor-pointer ${img.span || ""}`}
+               className="relative overflow-hidden rounded-2xl group cursor-pointer"
                 style={{ boxShadow: "0 15px 40px rgba(0,0,0,0.4)" }}
               >
                 <img src={img.url} alt={img.label} className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700" />

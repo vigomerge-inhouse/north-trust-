@@ -106,10 +106,10 @@ const SLIDES = [
 ];
 
 const ALL_PHOTOS = [
-  { url: hg1Img, label: "Property View",  wide: true  },
+  { url: hg1Img, label: "Property View",  wide: false },
   { url: hg2Img, label: "Interior",       wide: false },
   { url: hg3Img, label: "Garage",         wide: false },
-  { url: hg4Img, label: "Grounds",        wide: true  },
+  { url: hg4Img, label: "Grounds",        wide: false },
 ];
 
 interface DetailsPageProps {
@@ -187,7 +187,7 @@ export function DetailsPage({ onSchedule }: DetailsPageProps) {
             <p className="text-white/40 text-sm">{ALL_PHOTOS.length} photos — interior, exterior & grounds</p>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 auto-rows-[180px]">
+          <div className="grid grid-cols-2 gap-3">
             {ALL_PHOTOS.map((photo, i) => (
               <motion.div
                 key={i}

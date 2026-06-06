@@ -364,7 +364,7 @@ export function FeaturesPage({ onSchedule }: FeaturesPageProps) {
         <div className="flex items-center justify-center gap-1 mb-1">
           {[...Array(5)].map((_, i) => <Star key={i} size={14} className="text-[#c9a96e] fill-[#c9a96e]" />)}
         </div>
-        <p className="text-white/30 text-xs">RanchRetreat — Norway, Maine · Long-Term Rental · Oxford Hills · Immediately Available</p>
+        <p className="text-white/30 text-xs">Retreat — Norway, Maine · Long-Term Rental · Oxford Hills · Immediately Available</p>
       </div>
     </div>
   );
