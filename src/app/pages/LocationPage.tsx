@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { useState } from "react";
 import { Link } from "react-router";
 import { Waves, Mountain, Building2, Trees, Navigation, Clock, ArrowRight, ChevronRight, Anchor, MapPin, Star } from "lucide-react";
 
@@ -11,16 +12,11 @@ import neatHomeImg from "../../imports/location/fhero2.jpg";
 import stonetree from "../../imports/location/stonetree-12.jpg";
 import stonetree2 from "../../imports/location/stonetree-48.jpg";
 import privatespace from "../../imports/location/private-space.jpeg";
+import hs2Img from "../../imports/location/HS-2.jpeg";
 const SLIDES = [
+ 
   {
     url: privateForestImg,
-    label: "Private Forest",
-    sub: "Secluded · Peaceful · Nature-Filled Living",
-    tag: "Grounds",
-    position: "object-center",
-  },
-  {
-    url: privateForest2Img,
     label: "Two Wooded Acres",
     sub: "Create Trails · Gardens · Meadows",
     tag: "Private Land",
@@ -110,13 +106,13 @@ const AREA_HIGHLIGHTS = [
 ];
 
 const GALLERY_AREA = [
-  { url: privatespace,  label: "Private Woods",       span: "" },
-  { url: privateForest2Img, label: "Forest Views",        span: "" },
-  { url: outdoor1,          label: "Nature Trails",       span: "" },
-  { url: outdoor2,          label: "Woodland Edge",       span: "" },
-  { url: neatHomeImg,       label: "Country Access Road", span: "" },
-  { url: stonetree,  label: "Secluded Acres",      span: "" },
-  { url: stonetree2, label: "Nature Escape",       span: "" },
+  { url: privatespace, label: "Private Woods", span: "" },
+  { url: privateForest2Img, label: "Forest Views", span: "" },
+  { url: outdoor1, label: "Nature Trails", span: "" },
+  { url: outdoor2, label: "Woodland Edge", span: "" },
+  { url: neatHomeImg, label: "Country Access Road", span: "" },
+  { url: stonetree, label: "Secluded Acres", span: "" },
+  { url: stonetree2, label: "Nature Escape", span: "" },
 ];
 
 
@@ -125,12 +121,18 @@ interface LocationPageProps {
 }
 
 export function LocationPage({ onSchedule }: LocationPageProps) {
+  const [selectedImage, setSelectedImage] = useState<any>(null);
   return (
     <div className="min-h-screen bg-[#071322]">
       {/* Hero */}
       <div className="relative overflow-hidden" style={{ height: "100vh", width: "100%" }}>
+{/* Map placeholder */}
 
-        <img src={SLIDES[0].url} alt={SLIDES[0].label} className="w-full h-full object-cover" />
+<img
+  src={SLIDES[0].url}
+  alt={SLIDES[0].label}
+  className="w-full h-full object-cover"
+/>
         <div className="absolute inset-0 bg-gradient-to-b from-[#0b1a2e]/55 via-[#0b1a2e]/20 to-[#071322]" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0b1a2e]/60 to-transparent" />
         <div className="absolute bottom-12 left-8 md:left-16 max-w-2xl">
@@ -275,20 +277,31 @@ export function LocationPage({ onSchedule }: LocationPageProps) {
             </div>
           </motion.div>
 
-          <div className="grid grid-cols-3 gap-3 h-[500px]">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {GALLERY_AREA.map((img, i) => (
               <motion.div
                 key={i}
+                
                 initial={{ opacity: 0, scale: 0.94 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.07 }}
-               className="relative overflow-hidden rounded-2xl group cursor-pointer"
+                onClick={() => setSelectedImage(img)}
+                className="relative overflow-hidden rounded-3xl group cursor-pointer bg-white/5"
                 style={{ boxShadow: "0 15px 40px rgba(0,0,0,0.4)" }}
               >
-                <img src={img.url} alt={img.label} className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#071322]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3">
-                  <span className="text-white text-sm font-medium">{img.label}</span>
+                <img
+                  src={img.url}
+                  alt={img.label}
+                  className="w-full h-[280px] object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+
+                <div className="absolute bottom-4 left-4">
+                  <p className="text-white font-medium">
+                    {img.label}
+                  </p>
                 </div>
               </motion.div>
             ))}
