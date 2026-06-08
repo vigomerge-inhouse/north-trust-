@@ -279,7 +279,7 @@ export function FeaturesPage({ onSchedule }: FeaturesPageProps) {
               className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center"
             >
               {/* Images */}
-              <div className={`flex gap-3 h-80 ${isEven ? "" : "lg:order-2"}`}>
+              <div className={`flex flex-col sm:flex-row gap-3 h-auto sm:h-80 ${isEven ? "" : "lg:order-2"}`}>
                 <div className="flex-[1.4] relative overflow-hidden rounded-2xl shadow-2xl group">
                   <img src={f.img} alt={f.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0b1a2e]/50 to-transparent" />

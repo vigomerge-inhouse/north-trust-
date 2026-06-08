@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { X, Send, Check } from "lucide-react";
-
+import emailjs from "@emailjs/browser";
 interface ScheduleModalProps {
   open: boolean;
   onClose: () => void;
@@ -28,10 +28,32 @@ export function ScheduleModal({ open, onClose }: ScheduleModalProps) {
   });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  try {
+    await emailjs.send(
+      "service_ujoaycd",
+      "template_s7j9g18",
+      {
+         name: `${form.firstName} ${form.lastName}`,
+        firstName: form.firstName,
+        lastName: form.lastName,
+        email: form.email,
+        phone: form.phone,
+        date: form.date,
+        time: form.time,
+        household: form.household,
+        message: form.message,
+        hasPets: form.hasPets ? "Yes" : "No",
+      },
+      "Vu5r565yJJY1yQGTw"
+    );
     setSubmitted(true);
-  };
+  } catch (error: any) {
+    console.error("EmailJS Error:", JSON.stringify(error));
+    alert("Error: " + JSON.stringify(error));
+  }
+};
 
   const handleClose = () => {
     onClose();
@@ -154,7 +176,8 @@ export function ScheduleModal({ open, onClose }: ScheduleModalProps) {
                       <select
                         value={form.time}
                         onChange={update("time")}
-                        className="w-full bg-white/8 border border-white/15 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#c9a96e]/60 focus:bg-white/10 transition-all [color-scheme:dark]"
+                        style={{ background: "#0f2137", colorScheme: "dark" }}
+                        className="w-full border border-white/15 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#c9a96e]/60 transition-all"
                       >
                         <option value="" disabled>Select...</option>
                         {TIME_OPTIONS.map((t) => (
@@ -197,11 +220,10 @@ export function ScheduleModal({ open, onClose }: ScheduleModalProps) {
                         className="sr-only"
                       />
                       <div
-                        className={`w-5 h-5 rounded-md border transition-all flex items-center justify-center ${
-                          form.hasPets
-                            ? "bg-[#c9a96e] border-[#c9a96e]"
-                            : "border-white/30 bg-white/5 group-hover:border-[#c9a96e]/50"
-                        }`}
+                        className={`w-5 h-5 rounded-md border transition-all flex items-center justify-center ${form.hasPets
+                          ? "bg-[#c9a96e] border-[#c9a96e]"
+                          : "border-white/30 bg-white/5 group-hover:border-[#c9a96e]/50"
+                          }`}
                       >
                         {form.hasPets && <Check size={12} className="text-white" />}
                       </div>

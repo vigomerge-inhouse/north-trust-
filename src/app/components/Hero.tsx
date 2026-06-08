@@ -115,7 +115,7 @@ export function Hero({ onSchedule }: HeroProps) {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -10 }}
             transition={{ duration: 0.5 }}
-            className="absolute top-24 right-6 md:right-16 z-20"
+            className="absolute top-20 right-4 md:top-24 md:right-16 z-20"
           >
             <div className="bg-gradient-to-br from-[#c9a96e]/90 to-[#a07840]/90 backdrop-blur-sm rounded-2xl px-4 py-3 shadow-2xl border border-[#c9a96e]/30 text-right">
               <div className="flex items-center gap-1.5 justify-end mb-0.5">
@@ -130,7 +130,7 @@ export function Hero({ onSchedule }: HeroProps) {
 
         {/* Hero Content */}
         <div className="absolute inset-0 flex flex-col justify-end pb-32 px-8 md:px-16 z-20 max-w-5xl">
-          <div className="flex items-center gap-2 mb-3">
+          <div className="flex items-center gap-2 mb-3 pr-36 md:pr-0">
             <MapPin size={13} className="text-[#c9a96e]" />
            <span className="text-[#c9a96e] text-xs font-bold tracking-widest uppercase" style={{ textShadow: "0 2px 6px rgba(0,0,0,0.9)" }}>
             Long-Term Rental · Norway, Maine · Oxford Hills
