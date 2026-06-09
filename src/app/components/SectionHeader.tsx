@@ -9,9 +9,10 @@ interface SectionHeaderProps {
   subtitle?: string;
   center?: boolean;
   light?: boolean;
+eyebrowWhite?: boolean;
 }
 
-export function SectionHeader({ eyebrow, title, titleAccent, subtitle, center = false, light = false }: SectionHeaderProps) {
+export function SectionHeader({ eyebrow, title, titleAccent, subtitle, center = false, light = false, eyebrowWhite = false }: SectionHeaderProps) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
@@ -26,7 +27,7 @@ export function SectionHeader({ eyebrow, title, titleAccent, subtitle, center = 
       {eyebrow && (
         <div className={`flex items-center gap-3 mb-4 ${center ? "justify-center" : ""}`}>
           <div className="h-px w-10 bg-[#c9a055]" />
-          <span className="text-[#c9a055] text-xs tracking-[0.2em] uppercase font-medium">{eyebrow}</span>
+          <span className="text-4xl tracking-[0.1em] uppercase font-bold" style={{ color: eyebrowWhite ? "#ffffff" : "#c9a055" }}>{eyebrow}</span>
           {center && <div className="h-px w-10 bg-[#c9a055]" />}
         </div>
       )}
@@ -42,14 +43,14 @@ export function SectionHeader({ eyebrow, title, titleAccent, subtitle, center = 
         {titleAccent && (
           <>
             <br />
-            <span style={{ color: "#c9a055" }}>{titleAccent}</span>
+            <span style={{ color: "#3d2800" }}>{titleAccent}</span>
           </>
         )}
       </h2>
       {subtitle && (
         <p
           className="mt-4 max-w-2xl leading-relaxed text-base"
-          style={{ color: light ? "rgba(8,18,29,0.6)" : "rgba(244,239,229,0.58)", ...(center ? { marginLeft: "auto", marginRight: "auto" } : {}) }}
+          style={{ color: light ? "rgba(8,18,29,0.8)" : "rgba(244,239,229,0.58)", ...(center ? { marginLeft: "auto", marginRight: "auto" } : {}) }}
         >
           {subtitle}
         </p>

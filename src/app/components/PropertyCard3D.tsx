@@ -35,7 +35,7 @@ export function PropertyCard3D({ onSchedule }: PropertyCard3DProps) {
   };
 
   return (
-   <section className="relative py-24 px-6 md:px-16" style={{ background: "var(--np-bg-mid)" }}>
+   <section className="relative py-24 px-6 md:px-16" style={{ background: "linear-gradient(135deg, #e8d08a, #f0e0a0, #d4b96a)" }}>
   <div className="max-w-7xl mx-auto flex flex-col items-center">
 
       <motion.div
@@ -47,17 +47,17 @@ export function PropertyCard3D({ onSchedule }: PropertyCard3DProps) {
       >
         <div className="flex items-center justify-center gap-3 mb-4">
           <div className="h-px w-12 bg-[#c9a96e]" />
-          <span className="text-[#c9a96e] text-xs tracking-widest uppercase">RanchRetreat</span>
+          <span className="text-[#c9a96e] text-2xl tracking-widest uppercase font-bold">RanchRetreat</span>
           <div className="h-px w-12 bg-[#c9a96e]" />
         </div>
         <h2
-          className="text-white"
+          className="text-[#1a0f00]"
           style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", fontFamily: "Georgia, serif", lineHeight: 1.1 }}
         >
           Don't miss this<br />
           <span style={{ color: "#c9a96e" }}>renovated ranch gem</span>
         </h2>
-        <p className="text-white/50 mt-4 max-w-lg mx-auto">
+        <p className="mt-4 max-w-lg mx-auto" style={{ color: "rgba(26,15,0,0.7)" }}>
           A rare opportunity to rent a move-in-ready home perfectly balancing modern comfort, private
           nature-filled living, and four-season appeal.
         </p>

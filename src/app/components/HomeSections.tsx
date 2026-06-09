@@ -27,13 +27,14 @@ export function ModernLivingSection({ onSchedule }: { onSchedule: () => void }) 
   ];
 
   return (
-    <section style={{ background: "var(--np-bg-mid)" }} className="py-24 px-6 md:px-16">
+    <section style={{ background: "#f0f0f2" }} className="py-24 px-6 md:px-16">
       <div className="max-w-7xl mx-auto">
         <SectionHeader
           eyebrow="Modern Living"
           title="Contemporary comfort"
           titleAccent="beautifully crafted"
           subtitle="Experience contemporary comfort with thoughtfully designed spaces, elegant interiors, and seamless functionality. Every detail is crafted to enhance your lifestyle while creating a warm and inviting atmosphere."
+          light
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -52,25 +53,25 @@ export function ModernLivingSection({ onSchedule }: { onSchedule: () => void }) 
                   key={p.text}
                   className="flex items-start gap-4 p-4 rounded-2xl transition-all duration-300 hover:-translate-y-0.5"
                   style={{
-                    background: "var(--np-surface)",
-                    border: "1px solid var(--np-border)",
-                  }}
+  background: "#ffffff",
+  border: "1px solid rgba(0,0,0,0.08)",
+}}
                 >
-                  <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: "var(--np-gold-glow)", border: "1px solid var(--np-border-hv)" }}>
+                  <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: "rgba(201,160,85,0.12)", border: "1px solid rgba(201,160,85,0.25)" }}>
                     <Icon size={16} style={{ color: "var(--np-gold)" }} />
                   </div>
-                  <span style={{ color: "var(--np-text-muted)", fontSize: "0.9rem", lineHeight: 1.55 }}>{p.text}</span>
+                  <span style={{ color: "#444455", fontSize: "0.9rem", lineHeight: 1.55 }}>{p.text}</span>
                 </div>
               );
             })}
-            <Link
-              to="/modern-living"
-              className="inline-flex items-center gap-2 mt-4 text-sm group"
-              style={{ color: "var(--np-gold)" }}
-            >
-              Explore Modern Living
-              <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
+          <Link
+  to="/modern-living"
+  className="inline-flex items-center gap-2 mt-6 px-8 py-3 rounded-full text-sm font-semibold hover:scale-105 transition-all duration-300 group"
+  style={{ background: "linear-gradient(135deg, #c9a96e, #a07840)", color: "#ffffff", boxShadow: "0 6px 24px rgba(201,169,110,0.35)" }}
+>
+  Explore Modern Living
+  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+</Link>
           </motion.div>
 
           {/* Images */}
@@ -122,13 +123,15 @@ export function PropertyHighlightsSection({ onSchedule }: { onSchedule: () => vo
   ];
 
   return (
-    <section style={{ background: "var(--np-bg-alt)" }} className="py-24 px-6 md:px-16">
+    <section style={{ background: "linear-gradient(135deg, #e8d08a, #f0e0a0, #d4b96a)" }} className="py-24 px-6 md:px-16">
       <div className="max-w-7xl mx-auto">
         <SectionHeader
           eyebrow="Property Highlights"
           title="A perfect blend"
           titleAccent="of style and convenience"
           subtitle="Discover a perfect blend of style, convenience, and location. This exceptional property offers spacious layouts, premium finishes, abundant natural light, and a setting designed for modern living."
+           light
+           eyebrowWhite
         />
 
         {/* Stats */}
@@ -141,12 +144,12 @@ export function PropertyHighlightsSection({ onSchedule }: { onSchedule: () => vo
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
               className="text-center py-6 rounded-2xl"
-              style={{ background: "var(--np-surface)", border: "1px solid var(--np-border)" }}
+             style={{ background: "rgba(255,255,255,0.4)", border: "1px solid rgba(255,255,255,0.6)" }}
             >
               <div style={{ color: "var(--np-gold)", fontSize: "2.8rem", fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 700, lineHeight: 1 }}>
                 {s.value}
               </div>
-              <div className="text-white text-sm mt-1">{s.label}</div>
+              <div className="text-sm mt-1" style={{ color: "#1a0f00" }}>{s.label}</div>
             </motion.div>
           ))}
         </div>
@@ -156,22 +159,22 @@ export function PropertyHighlightsSection({ onSchedule }: { onSchedule: () => vo
           <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
             <div className="grid grid-cols-1 gap-2.5">
               {BULLETS.map((b) => (
-                <div key={b} className="flex items-center gap-3 py-2 border-b" style={{ borderColor: "rgba(255,255,255,0.05)" }}>
+                <div key={b} className="flex items-center gap-3 py-2 border-b" style={{ borderColor: "rgba(61,40,0,0.15)" }}>
                   <div className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: "var(--np-gold-glow)", border: "1px solid var(--np-border)" }}>
-                    <Check size={10} style={{ color: "var(--np-gold)" }} />
+                    <Check size={10} style={{ color: "#3d2800" }} />
                   </div>
-                  <span style={{ color: "var(--np-text-muted)", fontSize: "0.875rem" }}>{b}</span>
+                  <span style={{ color: "#1a0f00", fontSize: "0.875rem" }}>{b}</span>
                 </div>
               ))}
             </div>
-            <Link
-              to="/property-highlights"
-              className="inline-flex items-center gap-2 mt-6 text-sm group"
-              style={{ color: "var(--np-gold)" }}
-            >
-              View All Highlights
-              <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
+       <Link
+  to="/property-highlights"
+  className="inline-flex items-center gap-2 mt-6 px-8 py-3 rounded-full text-sm font-semibold hover:scale-105 transition-all duration-300 group"
+  style={{ background: "linear-gradient(135deg, #c9a96e, #a07840)", color: "#ffffff", boxShadow: "0 6px 24px rgba(201,169,110,0.35)" }}
+>
+  View All Highlights
+  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+</Link>
           </motion.div>
 
           {/* Gallery */}
@@ -207,7 +210,7 @@ export function PremiumFeaturesSection({ onSchedule }: { onSchedule: () => void 
   ];
 
   return (
-    <section style={{ background: "var(--np-bg-mid)" }} className="py-24 px-6 md:px-16">
+    <section style={{ background: "#f0f0f2" }} className="py-24 px-6 md:px-16">
       <div className="max-w-7xl mx-auto">
         <SectionHeader
           eyebrow="Premium Features"
@@ -215,6 +218,7 @@ export function PremiumFeaturesSection({ onSchedule }: { onSchedule: () => void 
           titleAccent="in every detail"
           subtitle="Enjoy luxury at every turn with high-end materials, designer finishes, smart home integration, energy-efficient systems, and carefully selected upgrades that elevate everyday living."
           center
+           light
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -236,8 +240,8 @@ export function PremiumFeaturesSection({ onSchedule }: { onSchedule: () => void 
                       <Icon size={15} style={{ color: "var(--np-gold)" }} />
                     </div>
                   </div>
-                  <h3 className="text-white font-semibold mb-1 group-hover:text-[#c9a055] transition-colors" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>{card.title}</h3>
-                  <p style={{ color: "var(--np-text-muted)", fontSize: "0.82rem" }}>{card.desc}</p>
+                  <h3 className="font-semibold mb-1 group-hover:text-[#c9a055] transition-colors" style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#1a1a2e" }}>{card.title}</h3>
+                  <p style={{ color: "#555566", fontSize: "0.82rem" }}>{card.desc}</p>
                 </Link>
               </motion.div>
             );
@@ -245,13 +249,14 @@ export function PremiumFeaturesSection({ onSchedule }: { onSchedule: () => void 
         </div>
 
         <div className="text-center mt-10">
-          <Link
-            to="/premium-features"
-            className="inline-flex items-center gap-2 px-8 py-3 rounded-full text-sm font-semibold transition-all hover:scale-105"
-            style={{ background: "var(--np-surface)", border: "1px solid var(--np-border)", color: "var(--np-text)" }}
-          >
-            Explore All Premium Features <ArrowRight size={15} />
-          </Link>
+        <Link
+  to="/premium-features"
+  className="inline-flex items-center gap-2 px-8 py-3 rounded-full text-sm font-semibold hover:scale-105 transition-all duration-300 group"
+  style={{ background: "linear-gradient(135deg, #c9a96e, #a07840)", color: "#ffffff", boxShadow: "0 6px 24px rgba(201,169,110,0.35)" }}
+>
+  Explore All Premium Features
+  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+</Link>
         </div>
       </div>
     </section>
@@ -267,13 +272,14 @@ export function BedroomsSection({ onSchedule }: { onSchedule: () => void }) {
   ];
 
   return (
-    <section style={{ background: "var(--np-bg)" }} className="py-24 px-6 md:px-16">
+    <section style={{ background: "linear-gradient(135deg, #e8d08a, #f0e0a0, #d4b96a)" }} className="py-24 px-6 md:px-16">
       <div className="max-w-7xl mx-auto">
         <SectionHeader
           eyebrow="Bedrooms"
           title="Rest, relax,"
           titleAccent="in your private retreat"
           subtitle="Relax in spacious, beautifully designed bedrooms that provide comfort, privacy, and tranquility. Generous layouts, ample storage, and elegant finishes create the perfect personal retreat."
+           light
         />
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
@@ -309,7 +315,7 @@ export function BedroomsSection({ onSchedule }: { onSchedule: () => void }) {
           <button
             onClick={onSchedule}
             className="inline-flex items-center gap-2 px-8 py-3 rounded-full text-sm font-semibold transition-all"
-            style={{ background: "var(--np-surface)", border: "1px solid var(--np-border)", color: "var(--np-text)" }}
+            style={{ background: "#ffffff", border: "1px solid rgba(0,0,0,0.1)", color: "#1a1a2e" }}
           >
             Schedule a Showing
           </button>
@@ -333,13 +339,14 @@ export function AmenitiesSection({ onSchedule }: { onSchedule: () => void }) {
   ];
 
   return (
-    <section style={{ background: "var(--np-bg-alt)" }} className="py-24 px-6 md:px-16">
+    <section style={{ background: "#f0f0f2" }} className="py-24 px-6 md:px-16">
       <div className="max-w-7xl mx-auto">
         <SectionHeader
           eyebrow="Amenities"
           title="Everything you need,"
           titleAccent="nothing you don't"
           subtitle="Enhance your daily lifestyle with premium amenities designed for convenience and relaxation, including landscaped outdoor spaces, secure parking, high-speed connectivity, recreational areas, and modern community features."
+            light
         />
 
         {/* Amenity Tiles */}
@@ -355,15 +362,15 @@ export function AmenitiesSection({ onSchedule }: { onSchedule: () => void }) {
                 transition={{ duration: 0.5, delay: i * 0.06 }}
                 className="flex flex-col items-center text-center py-6 px-4 rounded-2xl transition-all duration-300 hover:-translate-y-1"
                 style={{
-                  background: "var(--np-surface)",
-                  border: "1px solid var(--np-border)",
-                  boxShadow: "0 4px 20px rgba(8,18,29,0.3)",
-                }}
+  background: "rgba(255,255,255,0.45)",
+  border: "1px solid rgba(255,255,255,0.6)",
+  boxShadow: "0 4px 20px rgba(0,0,0,0.08)",
+}}
               >
                 <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-3" style={{ background: `${a.color}18`, border: `1px solid ${a.color}30` }}>
                   <Icon size={20} style={{ color: a.color }} />
                 </div>
-                <span className="text-white text-sm font-medium">{a.label}</span>
+                <span className="text-sm font-medium" style={{ color: "#1a0f00" }}>{a.label}</span>
               </motion.div>
             );
           })}
@@ -380,14 +387,14 @@ export function AmenitiesSection({ onSchedule }: { onSchedule: () => void }) {
         </div>
 
         <div className="text-center mt-8">
-          <Link
-            to="/amenities"
-            className="inline-flex items-center gap-2 text-sm group"
-            style={{ color: "var(--np-gold)" }}
-          >
-            View All Amenities
-            <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
-          </Link>
+        <Link
+  to="/amenities"
+  className="inline-flex items-center gap-2 px-8 py-3 rounded-full text-sm font-semibold hover:scale-105 transition-all duration-300 group"
+  style={{ background: "linear-gradient(135deg, #c9a96e, #a07840)", color: "#ffffff", boxShadow: "0 6px 24px rgba(201,169,110,0.35)" }}
+>
+  View All Amenities
+  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+</Link>
         </div>
       </div>
     </section>

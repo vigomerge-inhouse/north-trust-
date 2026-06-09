@@ -20,29 +20,10 @@ const SLIDES = [
     tag: "Master Suite",
     position: "object-bottom",
   },
-  {
-    url: h1Img,
-    label: "Exceptional Country Living",
-    sub: "Turnkey · Move-in Ready · Immediately Available",
-    tag: "Property",
-    position: "object-bottom",
-  },
-  {
-    url: h2Img,
-    label: "Your Private Forest",
-    sub: "Seclusion · Wildlife · Peace",
-    tag: "Grounds",
-    position: "object-center",
-  },
+
+  
   {
     url: h3Img,
-    label: "Private 2 Acre Yard & Outdoor Living",
-    sub: "Wrap-Around Porch · Spacious Deck · Pure Seclusion",
-    tag: "Exterior",
-    position: "object-center",
-  },
-  {
-    url: h4Img,
     label: "Single-Story Elegance",
     sub: "Gleaming New Floors · Abundant Natural Light",
     tag: "Interior",
@@ -102,8 +83,7 @@ export function Hero({ onSchedule }: HeroProps) {
               alt={slide.label}
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-[#0b1a2e]/55 via-[#0b1a2e]/15 to-[#0b1a2e]/92" />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0b1a2e]/55 to-transparent" />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 40%, transparent 70%)" }} />
           </motion.div>
         </AnimatePresence>
 
@@ -129,11 +109,17 @@ export function Hero({ onSchedule }: HeroProps) {
         </AnimatePresence>
 
         {/* Hero Content */}
-        <div className="absolute inset-0 flex flex-col justify-end pb-32 px-8 md:px-16 z-20 max-w-5xl">
+        <div
+  className="absolute z-20 max-w-5xl px-8 md:px-16"
+  style={{
+    top: "8%",
+    left: 0,
+  }}
+>
           <div className="flex items-center gap-2 mb-3 pr-36 md:pr-0">
             <MapPin size={13} className="text-[#c9a96e]" />
            <span className="text-[#c9a96e] text-xs font-bold tracking-widest uppercase" style={{ textShadow: "0 2px 6px rgba(0,0,0,0.9)" }}>
-            Long-Term Rental · Norway, Maine · Oxford Hills
+           { /*Long-Term Rental · Norway, Maine · Oxford Hills */}
           </span>
           </div>
 
@@ -145,42 +131,24 @@ export function Hero({ onSchedule }: HeroProps) {
               exit={{ opacity: 0, y: -16 }}
               transition={{ duration: 0.65, ease: "easeOut" }}
             >
-              <h1
-                className="text-white mb-2"
-                style={{
-                  fontSize: "clamp(2.4rem, 7vw, 5.5rem)",
-                  lineHeight: 1.05,
-                  fontFamily: "'Playfair Display', Georgia, serif",
-                  textShadow: "0 4px 40px rgba(0,0,0,0.5)",
-                }}
-              >
-                Masterfully Renovated<br />
-                <span
-                  style={{
-                    background: "linear-gradient(135deg, #c9a96e, #ffe4a0, #c9a96e)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                  }}
-                >
-                  Ranch Retreat
-                </span>
+         <h1
+  className="text-white mb-2"
+  style={{
+    fontSize: "clamp(2.4rem, 7vw, 5.5rem)",
+    lineHeight: 1.05,
+    fontFamily: "'Playfair Display', Georgia, serif",
+    fontWeight: 700,
+    textShadow: "0 2px 12px rgba(0,0,0,1), 0 4px 40px rgba(0,0,0,1)",
+  }}
+>
+ Masterfully Renovated <span>Ranch Retreat</span>
+
               </h1>
-              <p className="text-white/65 text-base md:text-lg">{slide.sub}</p>
+              <p className="text-white text-base md:text-lg font-bold mb-6" style={{ textShadow: "0 2px 12px rgba(0,0,0,1)" }}>{slide.sub}</p>
             </motion.div>
           </AnimatePresence>
 
-          {/* Tags */}
-          <div className="flex flex-wrap gap-2 mt-4 mb-6">
-            {["3 Bedrooms", "2 Full Baths", "2-Car Garage", "2 Private Acres", "Wrap-Around Porch", "Dog Friendly", "Turnkey", "Move-in Ready"].map((tag) => (
-              <span
-                key={tag}
-                className="px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 text-xs tracking-wide"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-
+          
           {/* CTAs */}
           <div className="flex flex-wrap gap-4">
             <Link
@@ -238,17 +206,17 @@ export function Hero({ onSchedule }: HeroProps) {
       </section>
 
       {/* Stats Bar */}
-      <div className="bg-[#0b1a2e]/85 backdrop-blur-xl border-t border-[#c9a96e]/20">
+      <div style={{background:"#fcf4f4", borderTop:"1px solid rgba(107,76,17,0.15)"}}>
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4">
           {STATS.map((stat, i) => (
             <div
               key={i}
               className="flex flex-col items-center justify-center py-4 border-r border-[#c9a96e]/10 last:border-0"
             >
-              <div className="text-[#c9a96e] font-bold text-xl" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+              <div className="font-bold text-xl" style={{ fontFamily: "'Playfair Display', Georgia, serif", color:"#6b4c11" }}>
                 {stat.value}
               </div>
-              <div className="text-white/50 text-xs tracking-wide mt-0.5">{stat.label}</div>
+              <div className="text-xs tracking-wide mt-0.5" style={{color:"rgba(44,62,32,0.55)"}}>{stat.label}</div>
             </div>
           ))}
         </div>

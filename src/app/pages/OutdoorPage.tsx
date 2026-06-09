@@ -25,14 +25,14 @@ import heroExt2   from "../../imports/outdoor/stonetree-12.jpg";
 // ── END HERO ─────────────────────────────────────────────────
 
 // ── GALLERY / CONTENT IMAGES ─────────────────────────────────
-import g1  from "../../imports/outdoor/stonetree-5.jpg";
+import g1  from "../../imports/outdoor/stonetree-y.jpg";
 import g2  from "../../imports/outdoor/stonetree-6.jpg";
 import g3  from "../../imports/outdoor/stonetree-13.jpg";
 import g4  from "../../imports/outdoor/stonetree-48.jpg";
-import g5  from "../../imports/outdoor/stonetree-59.jpg";
-import g6  from "../../imports/outdoor/stonetree-61.jpg";
-import g7  from "../../imports/outdoor/stonetree-63.jpg";
-import g8  from "../../imports/outdoor/stonetree-64.jpg";
+import g5  from "../../imports/outdoor/outbuilding_1.jpg";
+import g6  from "../../imports/outdoor/interrior-acess.jpg";
+import g7  from "../../imports/outdoor/stonetree-5.jpg";
+import g8  from "../../imports/outdoor/natural-view.jpeg";
 // ── END GALLERY ───────────────────────────────────────────────
 
 /* ─────────────────────────────────────────

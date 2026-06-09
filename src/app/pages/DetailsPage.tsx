@@ -11,9 +11,9 @@ import h5Img from "../../imports/details/Private_Forest.jpg";
 
 // ── GALLERY IMAGES ─────────────────────────────────
 import hg1Img from "../../imports/details/stonetree-5.jpg";
-import hg2Img from "../../imports/details/stonetree-6.jpg";
-import hg3Img from "../../imports/details/stonetree-11.jpg";
-import hg4Img from "../../imports/details/stonetree-12.jpg";
+import hg2Img from "../../imports/details/LIVING_IMG2.jpg";
+import hg3Img from "../../imports/details/stonetree-12.jpg";
+import hg4Img from "../../imports/details/stonetree-11.jpg";
 // ── END GALLERY IMAGES ───────────────────────────────────────
 const SPECS = [
   { group: "Property", rows: [

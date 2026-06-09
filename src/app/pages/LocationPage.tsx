@@ -6,12 +6,12 @@ import { Waves, Mountain, Building2, Trees, Navigation, Clock, ArrowRight, Chevr
 // LOCAL IMAGES
 import privateForestImg from "../../imports/location/Private_Forest.jpg";
 import privateForest2Img from "../../imports/location/Private_Forest-1.jpeg";
-import outdoor1 from "../../imports/location/stonetree-61.jpg";
+import naturetrial from "../../imports/location/naturetrial.jpg";
 import outdoor2 from "../../imports/location/stonetree-63.jpg";
-import neatHomeImg from "../../imports/location/fhero2.jpg";
+import neatHomeImg from "../../imports/location/country-acess.jpg";
 import stonetree from "../../imports/location/stonetree-12.jpg";
 import stonetree2 from "../../imports/location/stonetree-48.jpg";
-import privatespace from "../../imports/location/private-space.jpeg";
+import privatewoods from "../../imports/location/private-woods.jpg";
 import hs2Img from "../../imports/location/HS-2.jpeg";
 const SLIDES = [
  
@@ -23,7 +23,7 @@ const SLIDES = [
     position: "object-center",
   },
   {
-    url: outdoor1,
+    url: naturetrial,
     label: "Oxford Hills",
     sub: "Norway Lake & North Pond Just 2 Miles Away",
     tag: "Location",
@@ -106,13 +106,13 @@ const AREA_HIGHLIGHTS = [
 ];
 
 const GALLERY_AREA = [
-  { url: privatespace, label: "Private Woods", span: "" },
+  { url: privatewoods, label: "Private Woods", span: "" },
   { url: privateForest2Img, label: "Forest Views", span: "" },
-  { url: outdoor1, label: "Nature Trails", span: "" },
+  { url:naturetrial, label: "Nature Trails", span: "" },
   { url: outdoor2, label: "Woodland Edge", span: "" },
   { url: neatHomeImg, label: "Country Access Road", span: "" },
   { url: stonetree, label: "Secluded Acres", span: "" },
-  { url: stonetree2, label: "Nature Escape", span: "" },
+  //{ url: stonetree2, label: "Nature Escape", span: "" },
 ];
 
 

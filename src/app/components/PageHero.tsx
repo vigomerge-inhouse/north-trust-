@@ -22,10 +22,10 @@ export function PageHero({ image, eyebrow, title, titleAccent, breadcrumbs, heig
 
       {/* Multi-layer gradient for depth */}
       <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(8,18,29,0.55) 0%, rgba(8,18,29,0.18) 40%, rgba(8,18,29,0.95) 100%)" }} />
-      <div className="absolute inset-0" style={{ background: "linear-gradient(to right, rgba(8,18,29,0.65) 0%, transparent 60%)" }} />
+      <div className="absolute inset-0" style={{ background: "linear-gradient(to right, rgba(60,60,70,0.55) 0%, transparent 60%)" }} />
 
       {/* Subtle vignette */}
-      <div className="absolute inset-0" style={{ boxShadow: "inset 0 0 120px rgba(8,18,29,0.5)" }} />
+      <div className="absolute inset-0" style={{ boxShadow: "inset 0 0 120px rgba(60,60,70,0.4)" }} />
 
       <div className="absolute bottom-10 left-8 md:left-16 max-w-2xl">
         {/* Breadcrumb */}
